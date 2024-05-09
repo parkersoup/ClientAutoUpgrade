@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "版本控制系统";
+}
+@model IEnumerable<AutoUpgradeCore.UpgradeVersionInfo>
+
+<div >
+    <div>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th width="150">版本号</th>
+                    <th width="160">更新时间</th>
+                    <th width="100">大小</th>
+                    <th >日志</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (AutoUpgradeCore.UpgradeVersionInfo v in ViewBag.Data)
+                {
+                    <tr>
+                        <th>@v.Version<span class="badge text-primary">@v.Tag</span></th>
+                        <td>@v.Date</td>
+                        <td>@v.SizeStr</td>
+                        <td title="@v.Log" style="overflow:hidden;text-overflow:ellipsis">@v.Log</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <table>
+            <thead>
+                
+            </thead>
+            @foreach (AutoUpgradeCore.UpgradeVersionInfo m in ViewBag.Data)
+            {
+                
+            
+            }
+        </table>
+    </div>
+</div>
