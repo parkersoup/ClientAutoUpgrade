@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientAutoUpgrade", "ClientAutoUpgrade\ClientAutoUpgrade.csproj", "{4E87E807-02E3-4EE2-B7DE-FAC3464CFF1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoUpgradeCore", "AutoUpgradeCore\AutoUpgradeCore.csproj", "{A71048A6-F50A-4A0F-B048-77FE9C28B334}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoUpgradeCore", "AutoUpgradeCore\AutoUpgradeCore.csproj", "{A71048A6-F50A-4A0F-B048-77FE9C28B334}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoUpgradeHost", "AutoUpgradeHost\AutoUpgradeHost.csproj", "{8C9DAA85-D1C5-4A25-A6C1-E735FC692E95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoUpgradeHost", "AutoUpgradeHost\AutoUpgradeHost.csproj", "{8C9DAA85-D1C5-4A25-A6C1-E735FC692E95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoUpgradeClientManager", "AutoUpgradeClientManager\AutoUpgradeClientManager.csproj", "{4DE7BFBF-2F04-4212-AE5D-0CF9F496FBC8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoUpgradeClient", "ClientAutoUpgrade\AutoUpgradeClient.csproj", "{523FE1B0-257D-4B79-9600-ED25159A0C15}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{09D1C73C-199C-42BC-9C45-C47B7D0C70C8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{0CBF86D6-8702-4134-9047-6F037D2C43C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4E87E807-02E3-4EE2-B7DE-FAC3464CFF1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4E87E807-02E3-4EE2-B7DE-FAC3464CFF1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4E87E807-02E3-4EE2-B7DE-FAC3464CFF1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4E87E807-02E3-4EE2-B7DE-FAC3464CFF1F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A71048A6-F50A-4A0F-B048-77FE9C28B334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A71048A6-F50A-4A0F-B048-77FE9C28B334}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A71048A6-F50A-4A0F-B048-77FE9C28B334}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,9 +29,24 @@ Global
 		{8C9DAA85-D1C5-4A25-A6C1-E735FC692E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C9DAA85-D1C5-4A25-A6C1-E735FC692E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C9DAA85-D1C5-4A25-A6C1-E735FC692E95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DE7BFBF-2F04-4212-AE5D-0CF9F496FBC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DE7BFBF-2F04-4212-AE5D-0CF9F496FBC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DE7BFBF-2F04-4212-AE5D-0CF9F496FBC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DE7BFBF-2F04-4212-AE5D-0CF9F496FBC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{523FE1B0-257D-4B79-9600-ED25159A0C15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{523FE1B0-257D-4B79-9600-ED25159A0C15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{523FE1B0-257D-4B79-9600-ED25159A0C15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{523FE1B0-257D-4B79-9600-ED25159A0C15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CBF86D6-8702-4134-9047-6F037D2C43C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CBF86D6-8702-4134-9047-6F037D2C43C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CBF86D6-8702-4134-9047-6F037D2C43C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CBF86D6-8702-4134-9047-6F037D2C43C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0CBF86D6-8702-4134-9047-6F037D2C43C7} = {09D1C73C-199C-42BC-9C45-C47B7D0C70C8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FF3D34FF-9FA2-43C0-87BE-F1E537C83283}

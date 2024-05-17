@@ -3,6 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
 	  <LangVersion>10.0</LangVersion>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <Description>自动更新客户端核心库</Description>
+	  <PackageProjectUrl>https://github.com/parkersoup/AutoUpgradeClient</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/parkersoup/AutoUpgradeClient</RepositoryUrl>
   </PropertyGroup>
 
 </Project>

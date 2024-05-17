@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 namespace AutoUpgradeHost
@@ -12,7 +13,8 @@ namespace AutoUpgradeHost
             builder.Services.Configure<KestrelServerOptions>(options =>
             {
                 options.Limits.MaxRequestBodySize = int.MaxValue;
-            }); ;
+            });
+            builder.WebHost.UseUrls("http://localhost:9090", "https://localhost:9091");
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
@@ -31,7 +33,6 @@ namespace AutoUpgradeHost
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-
             app.Run();
         }
     }

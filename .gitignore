@@ -253,3 +253,4 @@ paket-files/
 
 *.db-shm
 *.db-wal
+/src/AutoUpgradeHost/wwwroot/VersionDir

@@ -20,20 +20,31 @@ namespace AutoUpgradeHost.Controllers
         }
         public IActionResult Index()
         {
-            var all = AutoUpgradeHelper.GetAllVersion(_versionDir);
+            var Apps = AutoUpgradeHelper.GetAllApp(_versionDir);
+            var all = new Dictionary<string,List<UpgradeVersionInfo>>();
+            foreach (var app in Apps)
+            {
+                all.Add(app,AutoUpgradeHelper.GetAllVersion(app, _versionDir));
+            }
             ViewBag.Data = all;
             return View();
         }
 
-        public IActionResult GetLastVer(string tag)
+        public IActionResult GetLastVer(string app, string tag)
         {
-            var v = AutoUpgradeHelper.GetLastVersion(_versionDir, tag);
+            var v = AutoUpgradeHelper.GetLastVersion(app, _versionDir, tag);
             return Content(v.ToVersionStr());
         }
 
         [HttpPost]
-        public IActionResult Upload(IFormFile file, string log)
+        public IActionResult Upload(IFormFile file,string app,bool patch, string log)
         {
+            if (string.IsNullOrEmpty(app)) app = AutoUpgradeHelper.defApp;
+            var dir = Path.Combine(_versionDir, app);
+            if (!Directory.Exists(dir))
+            {
+                Directory.CreateDirectory(dir);
+            }
             var en = HttpUtility.UrlDecode(log) ?? string.Empty;
             var m = new UpgradeVersionInfo();
             m.Date = DateTime.Now;
@@ -48,18 +59,18 @@ namespace AutoUpgradeHost.Controllers
                 m.Version = arr[0];
                 m.Tag = arr[1];
             }
-            using (var stream = new FileStream($"{_versionDir}/{file.FileName}", FileMode.Create))
+            using (var stream = new FileStream($"{dir}/{file.FileName}", FileMode.Create))
             {
                 file.CopyTo(stream);
-                AutoUpgradeHelper.WriteVersion(_versionDir, m);
+                AutoUpgradeHelper.WriteVersion(dir, m);
             }
             return RedirectToAction("Index", "Version");
         }
 
         [HttpGet]
-        public FileContentResult DownLoad(string verName)
+        public FileContentResult DownLoad(string path)
         {
-            var decode = HttpUtility.UrlDecode(verName);
+            var decode = HttpUtility.UrlDecode(path);
             var absPath = Path.Combine(_versionDir, decode);
             if (System.IO.File.Exists(absPath))
             {

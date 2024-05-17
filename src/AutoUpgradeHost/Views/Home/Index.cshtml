@@ -5,10 +5,19 @@
 <div class="text-center">
     <h1 class="display-6">上传新版本</h1>
     <form class="mt-2" enctype="multipart/form-data" method="post" action="~/Version/Upload">
-        <input class="form-control"  name="file" type="file" />
-        <textarea class="form-control mt-2" name="log" placeholder="输入更新日志" rows="3"></textarea>
-        <div class="row mt-2 ">
-            <input class="form-control col-sm-3 btn-primary" type="submit" value="提交版本" />
+        <input class="form-control" name="file" type="file" />
+        <div class="input-group mt-2">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">产品名称</span>
+            </div>
+            <input type="text" class="form-control" name="app" aria-label="app" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mt-2">
+            <textarea class="form-control " placeholder="更新说明" name="log"  ></textarea>
+        </div>
+     
+        <div class="d-flex mt-2 justify-content-center ">
+            <input class="form-control btn  btn-primary" type="submit" value="提交版本" />
         </div>
     </form>
 </div>
